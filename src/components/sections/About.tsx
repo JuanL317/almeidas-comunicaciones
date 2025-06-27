@@ -100,7 +100,7 @@ const About = () => {
           <div className="relative">
             <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-green-600 rounded-xl flex items-center justify-center">
                   <span className="text-white font-bold text-xl">A</span>
                 </div>
                 <div className="ml-4">
@@ -110,13 +110,13 @@ const About = () => {
               </div>
               
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 bg-primary-50 rounded-lg">
+                <div className="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
                   <span className="font-medium text-gray-700">Cobertura</span>
-                  <span className="text-primary-600 font-semibold">Urbana y Rural</span>
+                  <span className="text-blue-600 font-semibold">Urbana y Rural</span>
                 </div>
-                <div className="flex items-center justify-between p-4 bg-secondary-50 rounded-lg">
+                <div className="flex items-center justify-between p-4 bg-green-50 rounded-lg">
                   <span className="font-medium text-gray-700">Tecnología</span>
-                  <span className="text-secondary-600 font-semibold">Alámbrica e Inalámbrica</span>
+                  <span className="text-green-600 font-semibold">Alámbrica e Inalámbrica</span>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                   <span className="font-medium text-gray-700">Servicios</span>
@@ -131,7 +131,7 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
+              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
                 {stat.number}
               </div>
               <div className="text-lg font-semibold text-gray-900 mb-2">
@@ -158,7 +158,7 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-primary-100 to-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4 text-primary-600">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600">
                   {value.icon}
                 </div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">
@@ -173,7 +173,7 @@ const About = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-20 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-8 md:p-12 text-center text-white">
+        <div className="mt-20 bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 md:p-12 text-center text-white">
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             ¿Listo para conectarte?
           </h3>
@@ -181,8 +181,8 @@ const About = () => {
             Únete a cientos de familias y empresas que ya disfrutan de nuestros servicios
           </p>
           <a 
-            href="#contacto"
-            className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-colors inline-block"
+            href="/contacto"
+            className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-colors inline-block"
           >
             Solicitar Servicio
           </a>

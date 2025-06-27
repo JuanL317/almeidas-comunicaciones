@@ -1,10 +1,20 @@
 'use client'
 
-import { useState } from 'react'
+import Image from 'next/image'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import HamburgerButton from '../ui/HamburgerButton'
+import { motion, AnimatePresence } from 'framer-motion'
+import { usePathname } from 'next/navigation'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname();
+
+  // Cierra el menú móvil automáticamente al cambiar de ruta
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -17,114 +27,116 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">A</span>
+              <Image
+                src="/images/ALMEIDAS LOGO FINAL.png"
+                alt="Logo Almeidas Comunicaciones"
+                width={48}
+                height={48}
+                className="rounded-lg bg-white"
+                priority
+              />
+              <div className="ml-2 flex flex-col leading-tight">
+                <span className="text-lg sm:text-xl font-extrabold uppercase bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent tracking-widest drop-shadow">
+                  ALMEIDAS
+                </span>
+                <span className="flex items-center text-xs sm:text-sm font-semibold text-green-600 tracking-wider uppercase">
+                  COMUNICACIONES
+                  <span className="ml-1 font-bold uppercase bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">SAS</span>
+                </span>
               </div>
-              <span className="ml-2 text-xl font-bold text-gray-900">
-                Almeidas Comunicaciones
-              </span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             <Link 
-              href="#inicio" 
-              className="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors"
+              href="/" 
+              className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
             >
               Inicio
             </Link>
             <Link 
-              href="#servicios" 
-              className="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors"
+              href="/servicios" 
+              className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
             >
               Servicios
             </Link>
             <Link 
-              href="#nosotros" 
-              className="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors"
+              href="/nosotros" 
+              className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
             >
               Nosotros
             </Link>
             <Link 
-              href="#contacto" 
-              className="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors"
+              href="/contacto" 
+              className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
             >
               Contacto
             </Link>
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
             <Link 
-              href="#contacto"
-              className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+              href="/pqrs" 
+              className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
             >
-              Solicitar Servicio
+              PQRS
             </Link>
-          </div>
+          </nav>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button
-              onClick={toggleMenu}
-              className="text-gray-700 hover:text-primary-600 focus:outline-none focus:text-primary-600"
-            >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+            <HamburgerButton open={isMenuOpen} onClick={toggleMenu} />
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-              <Link 
-                href="#inicio" 
-                className="text-gray-700 hover:text-primary-600 block px-3 py-2 text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Inicio
-              </Link>
-              <Link 
-                href="#servicios" 
-                className="text-gray-700 hover:text-primary-600 block px-3 py-2 text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Servicios
-              </Link>
-              <Link 
-                href="#nosotros" 
-                className="text-gray-700 hover:text-primary-600 block px-3 py-2 text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Nosotros
-              </Link>
-              <Link 
-                href="#contacto" 
-                className="text-gray-700 hover:text-primary-600 block px-3 py-2 text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contacto
-              </Link>
-              <div className="pt-4">
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              className="md:hidden"
+              initial={{ opacity: 0, y: -24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -24 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+            >
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
                 <Link 
-                  href="#contacto"
-                  className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium block text-center"
+                  href="#inicio" 
+                  className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Solicitar Servicio
+                  Inicio
+                </Link>
+                <Link 
+                  href="/servicios" 
+                  className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Servicios
+                </Link>
+                <Link 
+                  href="/nosotros" 
+                  className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Nosotros
+                </Link>
+                <Link 
+                  href="/contacto" 
+                  className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contacto
+                </Link>
+                <Link 
+                  href="/pqrs" 
+                  className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  PQRS
                 </Link>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   )

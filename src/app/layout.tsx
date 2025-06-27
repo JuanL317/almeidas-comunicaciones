@@ -8,23 +8,26 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Almeidas Comunicaciones SAS - Internet y Televisión",
-  description: "Servicios de internet y televisión de alta velocidad para hogares y empresas en zonas urbanas y rurales. Conectamos comunidades con tecnología avanzada.",
+  description: "Empresa dedicada a la venta de servicio de internet y televisión, a personas que viven en el casco urbano y rurales a través de redes alámbricas e inalámbricas.",
   keywords: "internet, televisión, servicios de internet, internet rural, internet urbano, televisión por cable, conectividad, Almeidas Comunicaciones",
   authors: [{ name: "Almeidas Comunicaciones SAS" }],
   openGraph: {
     title: "Almeidas Comunicaciones SAS - Internet y Televisión",
-    description: "Servicios de internet y televisión de alta velocidad para hogares y empresas en zonas urbanas y rurales.",
+    description: "Empresa dedicada a la venta de servicio de internet y televisión, a personas que viven en el casco urbano y rurales a través de redes alámbricas e inalámbricas.",
     type: "website",
     locale: "es_CO",
   },
   twitter: {
     card: "summary_large_image",
     title: "Almeidas Comunicaciones SAS - Internet y Televisión",
-    description: "Servicios de internet y televisión de alta velocidad para hogares y empresas.",
+    description: "Empresa dedicada a la venta de servicio de internet y televisión, a personas que viven en el casco urbano y rurales a través de redes alámbricas e inalámbricas.",
   },
   robots: {
     index: true,
     follow: true,
+  },
+  icons: {
+    icon: "/favicon.ico",
   },
 };
 
