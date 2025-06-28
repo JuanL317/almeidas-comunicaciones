@@ -1,4 +1,3 @@
-import Services from '@/components/sections/Services';
 import AnimatedPage from '@/components/ui/AnimatedPage';
 
 export default function ServiciosPage() {

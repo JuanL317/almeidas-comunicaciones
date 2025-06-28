@@ -66,6 +66,19 @@ const Footer = () => {
             <Link href="#" className="text-gray-400 hover:text-teal-300 text-xs transition-colors">Soporte Técnico</Link>
           </div>
         </div>
+
+        {/* Botón flotante de WhatsApp */}
+        <div>
+          <a
+            href="https://wa.me/573222188772?text=Hola%20quiero%20adquirir%20un%20plan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed z-50 bottom-6 right-6 bg-green-500 hover:bg-green-600 rounded-full shadow-lg p-2 flex items-center justify-center transition-colors"
+            aria-label="WhatsApp"
+          >
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" className="w-10 h-10" />
+          </a>
+        </div>
       </div>
     </footer>
   )

@@ -1,4 +1,59 @@
+"use client";
 import Link from 'next/link'
+import Image from "next/image";
+import { useRef } from "react";
+
+// Carrusel minimalista de marcas
+const brands = [
+  "vive_para_la_gente.png",
+  "Fiscalia_General_de_la_Nacion.png",
+  "Bienestar_familiar.png",
+  "policia_nacional.png",
+  "Todos_por_un_nuevo_pais.png",
+  "MinTIC.png",
+  "Internet_sano.png",
+  "Comision_de_Regulacion_de_Comunicaciones.png",
+];
+
+function BrandsCarousel() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  return (
+    <div className="w-full py-8 bg-white flex flex-col items-center">
+      <div className="w-full overflow-x-auto scrollbar-hide">
+        <div
+          ref={carouselRef}
+          className="flex gap-8 min-w-max animate-scroll-x items-center px-4"
+          style={{ animation: "scroll-x 30s linear infinite" }}
+        >
+          {brands.concat(brands).map((brand, idx) => (
+            <div
+              key={idx}
+              className="flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+              style={{ height: 60 }}
+            >
+              <Image
+                src={`/indicadores-calidad/${brand}`}
+                alt={brand.replace(/_/g, ' ').replace(/.png$/, '')}
+                width={120}
+                height={60}
+                style={{ objectFit: "contain", height: 60 }}
+                priority={idx < 8}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <style jsx global>{`
+        @keyframes scroll-x {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
+    </div>
+  );
+}
 
 const Hero = () => {
   return (
@@ -127,6 +182,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      {/* Carrusel de marcas */}
+      <BrandsCarousel />
     </section>
   )
 }
