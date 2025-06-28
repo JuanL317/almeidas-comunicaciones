@@ -79,6 +79,12 @@ const Header = () => {
             >
               PQRS
             </Link>
+            <Link 
+              href="/normatividad" 
+              className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+            >
+              Normatividad
+            </Link>
           </nav>
 
           {/* Mobile menu button */}
@@ -132,6 +138,13 @@ const Header = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   PQRS
+                </Link>
+                <Link 
+                  href="/normatividad" 
+                  className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Normatividad
                 </Link>
               </div>
             </motion.div>
