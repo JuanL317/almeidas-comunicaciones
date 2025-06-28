@@ -1,60 +1,69 @@
 # Almeidas Comunicaciones SAS - Landing Page
 
-Una landing page moderna y profesional para Almeidas Comunicaciones SAS, empresa dedicada a la venta de servicios de internet y televisión en zonas urbanas y rurales.
+Landing page moderna y profesional para Almeidas Comunicaciones SAS, empresa dedicada a la venta de servicios de internet y televisión en zonas urbanas y rurales.
 
-## 🚀 Características
+## 🚀 Features
 
-- **Diseño Responsivo**: Optimizado para dispositivos móviles, tablets y desktop
+- **Diseño Responsivo**: Optimizado para móviles, tablets y desktop
 - **Componentes Modulares**: Arquitectura basada en componentes reutilizables
-- **Estilos Minimalistas**: Diseño empresarial limpio y profesional
-- **Paleta de Colores**: Azul, blanco y verde como colores corporativos
-- **SEO Optimizado**: Metadatos y estructura semántica para mejor posicionamiento
-- **Formulario de Contacto**: Sistema de contacto funcional
-- **Navegación Suave**: Scroll suave entre secciones
+- **Estilo Minimalista**: Imagen empresarial limpia y profesional
+- **SEO Optimizado**: Metadatos y estructura semántica
+- **Formulario de Contacto y PQRS**: Funcional y validado
+- **Normatividad**: Tarjetas minimalistas con acceso a documentos legales
+- **Carrusel de Marcas**: Inspirado en waitelecomunicaciones.com
+- **Navegación Suave**: Scroll y animaciones fluidas
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Tech Stack
 
-- **Next.js 14**: Framework de React con App Router
-- **TypeScript**: Tipado estático para mejor desarrollo
-- **Tailwind CSS**: Framework de CSS utility-first
-- **React Hooks**: Estado y efectos para interactividad
-- **ESLint**: Linting para código limpio
+- **Next.js 15** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **React Hooks**
+- **ESLint**
+- **pnpm** (recomendado)
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 src/
 ├── app/
-│   ├── globals.css          # Estilos globales
-│   ├── layout.tsx           # Layout principal
-│   └── page.tsx             # Página principal
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── normatividad/page.tsx      # Sección de normatividad
+│   ├── pqrs/page.tsx              # Formulario PQRS
+│   └── servicios/page.tsx         # Servicios y planes
 ├── components/
 │   ├── layout/
-│   │   ├── Header.tsx       # Navegación principal
-│   │   └── Footer.tsx       # Pie de página
+│   │   ├── Header.tsx
+│   │   └── Footer.tsx
 │   └── sections/
-│       ├── Hero.tsx         # Sección principal
-│       ├── Services.tsx     # Planes y servicios
-│       ├── About.tsx        # Información de la empresa
-│       └── Contact.tsx      # Formulario de contacto
+│       ├── Hero.tsx
+│       ├── Services.tsx
+│       ├── About.tsx
+│       └── CarruselMarcas.tsx     # Carrusel de indicadores de calidad
 └── ...
+public/
+├── favicon.ico
+├── indicadores-calidad/           # Imágenes del carrusel
+├── documentos-normativos/         # PDFs de normatividad
+└── images/
 ```
 
-## 🎨 Paleta de Colores
+## 🎨 Branding Colors
 
-- **Azul Primario**: `#3b82f6` (primary-600)
-- **Verde Secundario**: `#22c55e` (secondary-600)
-- **Blanco**: `#ffffff`
-- **Grises Neutros**: Escala completa para textos y fondos
+- Azul Primario: `#3b82f6`
+- Verde Secundario: `#22c55e`
+- Blanco: `#ffffff`
+- Grises Neutros
 
-## 🚀 Instalación y Uso
+## 🚀 Getting Started
 
-### Prerrequisitos
+### Prerequisites
+- Node.js 18+
+- pnpm (recomendado) o npm/yarn
 
-- Node.js 18+ 
-- npm o yarn
-
-### Instalación
+### Installation
 
 1. Clona el repositorio:
 ```bash
@@ -62,104 +71,82 @@ git clone [url-del-repositorio]
 cd almeidas-comunicaciones
 ```
 
-2. Instala las dependencias:
+2. Instala dependencias:
 ```bash
-npm install
+pnpm install
+# o npm install
 ```
 
 3. Ejecuta el servidor de desarrollo:
 ```bash
-npm run dev
+pnpm dev
+# o npm run dev
 ```
 
-4. Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
+4. Abre [http://localhost:3000](http://localhost:3000)
 
-### Scripts Disponibles
+### Scripts
+- `pnpm dev` / `npm run dev`: Development server
+- `pnpm build` / `npm run build`: Production build
+- `pnpm start` / `npm run start`: Production server
+- `pnpm lint` / `npm run lint`: Linting
 
-- `npm run dev`: Servidor de desarrollo
-- `npm run build`: Construcción para producción
-- `npm run start`: Servidor de producción
-- `npm run lint`: Verificación de código
+## 📱 Main Sections
 
-## 📱 Secciones de la Landing Page
-
-### 1. Hero (Inicio)
+### Hero (Inicio)
 - Título principal con gradiente
 - Descripción de servicios
-- Botones de llamada a la acción
-- Tarjeta visual con información de servicios
+- Carrusel de marcas minimalista
 
-### 2. Servicios
-- Planes de Internet (Básico, Estándar, Premium)
-- Planes de Televisión (Básico, Completo)
-- Servicios adicionales (Empresarial, Instalación, Soporte)
+### Servicios
+- Planes de Internet y TV
+- Ventajas y características
 
-### 3. Nosotros
-- Misión de la empresa
-- Estadísticas de clientes
-- Valores corporativos
-- Llamada a la acción
+### Nosotros
+- Misión, visión y valores
+- Estadísticas y confianza
 
-### 4. Contacto
-- Formulario de contacto funcional
-- Información de contacto
-- Enlaces a redes sociales
-- Sección de FAQ
+### Normatividad
+- Documentos legales (resoluciones, leyes, decretos, acuerdos, políticas)
+- Tarjetas minimalistas, acceso directo a PDFs
 
-## 🔧 Personalización
+### PQRS
+- Formulario validado para peticiones, quejas, reclamos y sugerencias
+- Mensajes de éxito y validación
 
-### Colores
-Los colores se pueden modificar en `tailwind.config.ts`:
+### Contacto
+- Información de contacto y redes sociales
 
-```typescript
-colors: {
-  primary: {
-    // Escala de azules
-  },
-  secondary: {
-    // Escala de verdes
-  }
-}
-```
+## 🔧 Customization
 
-### Contenido
-- **Planes de Internet**: Modificar en `Services.tsx`
-- **Información de Contacto**: Actualizar en `Contact.tsx` y `Footer.tsx`
-- **Metadatos**: Editar en `layout.tsx`
+- **Colores:** Edita en `tailwind.config.ts`
+- **Planes y servicios:** Modifica en `Services.tsx`
+- **Normatividad:** Agrega PDFs en `public/documentos-normativos/`
+- **Imágenes del carrusel:** Agrega logos en `public/indicadores-calidad/`
+- **Metadatos:** Edita en `layout.tsx`
 
-## 📧 Integración de Email
-
-El formulario de contacto está preparado para integrarse con servicios como:
-- SendGrid
-- EmailJS
-- Nodemailer
-- Formspree
-
-## 🌐 Despliegue
+## 🌐 Deployment
 
 ### Vercel (Recomendado)
-1. Conecta tu repositorio a Vercel
-2. Configura las variables de entorno si es necesario
-3. Despliega automáticamente
+1. Conecta tu repo a Vercel
+2. Despliega automáticamente
 
-### Otros Proveedores
-- Netlify
-- AWS Amplify
-- Google Cloud Platform
+### Otros
+- Netlify, AWS Amplify, Google Cloud Platform
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la Licencia MIT.
+MIT
 
-## 👥 Contribución
+## 👥 Contributing
 
 1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
+2. Crea una rama (`git checkout -b feature/FeatureName`)
+3. Commit tus cambios (`git commit -m 'Add feature'`)
+4. Push a la rama (`git push origin feature/FeatureName`)
 5. Abre un Pull Request
 
-## 📞 Contacto
+## 📞 Contact
 
 **Almeidas Comunicaciones SAS**
 - Email: info@almeidas.com
@@ -167,5 +154,4 @@ Este proyecto está bajo la Licencia MIT.
 - Ubicación: Zonas urbanas y rurales
 
 ---
-
 Desarrollado con ❤️ para conectar comunidades
